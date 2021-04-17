@@ -1,0 +1,19 @@
+name: PixelEdgeEssentials
+main: cf.towsifkafi.pixeledgeessentials.pixeledgeessentials
+version: 0.0.1
+author: Towsifkafi
+description: A simple plguin which is used in PixelEdgeBD to easily manage the server
+website: www.pixeledgebd.com
+commands:
+  fuck:
+    description: ok!
+    aliases: [frick, fock, fck, fack, fak]
+  rage:
+    description: Rage Custom Effect
+  fury:
+    description: Fury Custom Effect
+  regen:
+    description: Regen Custom Effect
+  ceffects:
+    description: Custom Effects GUI Menu
+    usage: /<command>
