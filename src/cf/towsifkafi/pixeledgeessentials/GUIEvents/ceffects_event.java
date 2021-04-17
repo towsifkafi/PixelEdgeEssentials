@@ -20,13 +20,13 @@ public class ceffects_event implements Listener {
 
             switch (e.getCurrentItem().getType()) {
                 case REDSTONE:
-                    new rage();
+                    player.performCommand("rage");
                     break;
                 case GLOWSTONE_DUST:
-                    new fury();
+                    player.performCommand("fury");
                     break;
                 case APPLE:
-                    new regen();
+                    player.performCommand("regen");
                     break;
             }
             e.setCancelled(true);
