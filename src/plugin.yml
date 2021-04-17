@@ -16,4 +16,5 @@ commands:
     description: Regen Custom Effect
   ceffects:
     description: Custom Effects GUI Menu
+    aliases: [e, effects]
     usage: /<command>

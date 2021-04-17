@@ -41,23 +41,28 @@ public class rage implements CommandExecutor {
                             p.sendMessage(ChatColor.RED +" "+ timeleft.toString() + " seconds before you can use rage again.");
                         }
                     } else {
-                        Player target = Bukkit.getPlayerExact(args[0]);
-                        if(target instanceof Player) {
-                            long timeLeft = System.currentTimeMillis() - rageCooldownManager.getCooldown(p.getUniqueId());
-                            if(TimeUnit.MILLISECONDS.toSeconds(timeLeft) >= CooldownManager.DEFAULT_COOLDOWN){
-                                target.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 900, 2));
-                                target.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 900, 2));
-                                target.addPotionEffect(new PotionEffect(PotionEffectType.FIRE_RESISTANCE, 900, 0));
-                                target.sendMessage(ChatColor.translateAlternateColorCodes('&', EPREFIX + " &aYou have been &cRaged&a by &b" + p.getDisplayName()));
-                                p.sendMessage(ChatColor.translateAlternateColorCodes('&', EPREFIX + " &aYou have &cRaged&a &b" + target.getDisplayName()));
-                                rageCooldownManager.setCooldown(p.getUniqueId(), System.currentTimeMillis());
-                            }else{
-                                Long timeleft = CooldownManager.DEFAULT_COOLDOWN - TimeUnit.MILLISECONDS.toSeconds(timeLeft);
-                                p.sendMessage(ChatColor.RED +" "+ timeleft.toString() + " seconds before you can use rage again.");
+                        if(p.hasPermission("pixel.effect.others")) {
+                            Player target = Bukkit.getPlayerExact(args[0]);
+                            if(target instanceof Player) {
+                                long timeLeft = System.currentTimeMillis() - rageCooldownManager.getCooldown(p.getUniqueId());
+                                if(TimeUnit.MILLISECONDS.toSeconds(timeLeft) >= CooldownManager.DEFAULT_COOLDOWN){
+                                    target.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 900, 2));
+                                    target.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 900, 2));
+                                    target.addPotionEffect(new PotionEffect(PotionEffectType.FIRE_RESISTANCE, 900, 0));
+                                    target.sendMessage(ChatColor.translateAlternateColorCodes('&', EPREFIX + " &aYou have been &cRaged&a by &b" + p.getDisplayName()));
+                                    p.sendMessage(ChatColor.translateAlternateColorCodes('&', EPREFIX + " &aYou have &cRaged&a &b" + target.getDisplayName()));
+                                    rageCooldownManager.setCooldown(p.getUniqueId(), System.currentTimeMillis());
+                                }else{
+                                    Long timeleft = CooldownManager.DEFAULT_COOLDOWN - TimeUnit.MILLISECONDS.toSeconds(timeLeft);
+                                    p.sendMessage(ChatColor.RED +" "+ timeleft.toString() + " seconds before you can use rage again.");
+                                }
+                            } else {
+                                p.sendMessage(ChatColor.translateAlternateColorCodes('&', EPREFIX + " &aPlease provide a valid player"));
                             }
                         } else {
-                            p.sendMessage(ChatColor.translateAlternateColorCodes('&', EPREFIX + " &aPlease provide a valid player"));
+                            p.sendMessage(ChatColor.translateAlternateColorCodes('&', EPREFIX + " &cYou dont have permission to effect other players"));
                         }
+
                     }
 
                 } else {
