@@ -2,6 +2,7 @@ package cf.towsifkafi.pixeledgeessentials.effects;
 
 import cf.towsifkafi.pixeledgeessentials.commands.CooldownManager;
 import cf.towsifkafi.pixeledgeessentials.pixeledgeessentials;
+import com.connorlinfoot.actionbarapi.ActionBarAPI;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
@@ -36,6 +37,7 @@ public class fury implements CommandExecutor {
                         ((Player) sender).addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 900, 3));
                         ((Player) sender).addPotionEffect(new PotionEffect(PotionEffectType.FAST_DIGGING, 900, 2));
                         p.sendMessage(ChatColor.translateAlternateColorCodes('&', EPREFIX + " &6Fury &ahas been used!"));
+                        ActionBarAPI.sendActionBar(p,ChatColor.translateAlternateColorCodes('&', "&6&lFURY &a&lActivated"), 900);
                         furyCooldownManager.setCooldown(p.getUniqueId(), System.currentTimeMillis());
                     }else{
                         Long timeleft = CooldownManager.DEFAULT_COOLDOWN - TimeUnit.MILLISECONDS.toSeconds(timeLeft);

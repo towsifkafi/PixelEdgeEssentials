@@ -70,6 +70,7 @@ public class ceffects implements CommandExecutor {
                 ItemMeta backMeta = back.getItemMeta();
                 backMeta.setDisplayName(ChatColor.translateAlternateColorCodes('&', "&c&lClose"));
                 back.setItemMeta(backMeta);
+
                 // -- * --
 
                 ItemStack[] items = { rage, fury, regen };

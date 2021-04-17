@@ -2,6 +2,7 @@ package cf.towsifkafi.pixeledgeessentials.effects;
 
 import cf.towsifkafi.pixeledgeessentials.commands.CooldownManager;
 import cf.towsifkafi.pixeledgeessentials.pixeledgeessentials;
+import com.connorlinfoot.actionbarapi.ActionBarAPI;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
@@ -33,6 +34,7 @@ public class regen implements CommandExecutor {
                         ((Player) sender).addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 600, 3));
                         ((Player) sender).addPotionEffect(new PotionEffect(PotionEffectType.HEALTH_BOOST, 600, 3));
                         p.sendMessage(ChatColor.translateAlternateColorCodes('&', EPREFIX + " &dRegen &ahas been used!"));
+                        ActionBarAPI.sendActionBar(p,ChatColor.translateAlternateColorCodes('&', "&d&lREGEN &a&lActivated"), 600);
                         regenCooldownManager.setCooldown(p.getUniqueId(), System.currentTimeMillis());
                     }else{
                         Long timeleft = CooldownManager.DEFAULT_COOLDOWN - TimeUnit.MILLISECONDS.toSeconds(timeLeft);

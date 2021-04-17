@@ -2,6 +2,7 @@ package cf.towsifkafi.pixeledgeessentials.effects;
 
 import cf.towsifkafi.pixeledgeessentials.commands.CooldownManager;
 import cf.towsifkafi.pixeledgeessentials.pixeledgeessentials;
+import com.connorlinfoot.actionbarapi.ActionBarAPI;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
@@ -35,6 +36,7 @@ public class rage implements CommandExecutor {
                             ((Player) sender).addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 900, 2));
                             ((Player) sender).addPotionEffect(new PotionEffect(PotionEffectType.FIRE_RESISTANCE, 900, 0));
                             p.sendMessage(ChatColor.translateAlternateColorCodes('&', EPREFIX + " &cRage &a has been used!"));
+                            ActionBarAPI.sendActionBar(p,ChatColor.translateAlternateColorCodes('&', "&c&lRAGE &a&lActivated"), 900);
                             rageCooldownManager.setCooldown(p.getUniqueId(), System.currentTimeMillis());
                         }else{
                             Long timeleft = CooldownManager.DEFAULT_COOLDOWN - TimeUnit.MILLISECONDS.toSeconds(timeLeft);
@@ -50,6 +52,7 @@ public class rage implements CommandExecutor {
                                     target.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 900, 2));
                                     target.addPotionEffect(new PotionEffect(PotionEffectType.FIRE_RESISTANCE, 900, 0));
                                     target.sendMessage(ChatColor.translateAlternateColorCodes('&', EPREFIX + " &aYou have been &cRaged&a by &b" + p.getDisplayName()));
+                                    ActionBarAPI.sendActionBar(target,ChatColor.translateAlternateColorCodes('&', "&c&lRAGE &a&lActivated"), 900);
                                     p.sendMessage(ChatColor.translateAlternateColorCodes('&', EPREFIX + " &aYou have &cRaged&a &b" + target.getDisplayName()));
                                     rageCooldownManager.setCooldown(p.getUniqueId(), System.currentTimeMillis());
                                 }else{
