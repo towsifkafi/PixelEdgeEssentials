@@ -57,17 +57,25 @@ public class ceffects implements CommandExecutor {
 
                 ItemStack regen = new ItemStack(Material.APPLE, 1);
                 ItemMeta regenMeta = regen.getItemMeta();
-                regenMeta.setDisplayName(ChatColor.translateAlternateColorCodes('&', "&cREGEN"));
+                regenMeta.setDisplayName(ChatColor.translateAlternateColorCodes('&', "&c&lREGEN"));
                 List<String> regenLore = new ArrayList<String>();
                 regenLore.add(ChatColor.translateAlternateColorCodes('&', "&eClick to activate &c&lREGEN"));
                 regenMeta.setLore(regenLore);
                 regen.setItemMeta(regenMeta);
 
+
+                // BACK
+
+                ItemStack back = new ItemStack(Material.ARROW, 1);
+                ItemMeta backMeta = back.getItemMeta();
+                backMeta.setDisplayName(ChatColor.translateAlternateColorCodes('&', "&c&lClose"));
+                back.setItemMeta(backMeta);
                 // -- * --
 
                 ItemStack[] items = { rage, fury, regen };
 
                 vault.setContents(items);
+                vault.setItem(8, back);
 
             } else {
 

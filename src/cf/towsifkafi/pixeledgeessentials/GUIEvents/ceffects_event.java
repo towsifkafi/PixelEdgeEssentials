@@ -21,12 +21,18 @@ public class ceffects_event implements Listener {
             switch (e.getCurrentItem().getType()) {
                 case REDSTONE:
                     player.performCommand("rage");
+                    player.closeInventory();
                     break;
                 case GLOWSTONE_DUST:
                     player.performCommand("fury");
+                    player.closeInventory();
                     break;
                 case APPLE:
                     player.performCommand("regen");
+                    player.closeInventory();
+                    break;
+                case ARROW:
+                    player.closeInventory();
                     break;
             }
             e.setCancelled(true);
