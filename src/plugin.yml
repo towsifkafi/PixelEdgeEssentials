@@ -1,7 +1,8 @@
 name: PixelEdgeEssentials
 main: cf.towsifkafi.pixeledgeessentials.pixeledgeessentials
 version: 0.0.1
-author: Towsifkafi
+authors: [TowsifKafi, AlveeYT]
+softdepend: [Vault, ActionBarAPI]
 description: A simple plguin which is used in PixelEdgeBD to easily manage the server
 website: www.pixeledgebd.com
 commands:
