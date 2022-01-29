@@ -10,8 +10,7 @@ import org.bukkit.event.player.PlayerBedLeaveEvent;
 public class OnLeaveBed implements Listener {
     @EventHandler
     public void onLeaveBed(PlayerBedLeaveEvent event){
-        Player player = event.getPlayer();
-        player.kickPlayer(ChatColor.RED + "Die Bish! You Left da BED");
+        event.getPlayer().kickPlayer(ChatColor.RED+ "Die Bish! You Left da BED");
     }
 
 }
